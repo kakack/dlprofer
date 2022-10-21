@@ -1,0 +1,7 @@
+recursive-include dlprofviewer/dlprof/static *.html *.js *.ico *.css 
+recursive-include dlprofviewer/dlprof/templates *.html
+recursive-include brdlprof/bin *
+recursive-include brdlprof/config *.yaml
+recursive-include brdlprof/include *
+recursive-include brdlprof/lib *
+include dlprofviewer/dlproftool/dlprof_dldb.sqlite
