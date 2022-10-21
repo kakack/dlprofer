@@ -1,0 +1,43 @@
+<!-- !@file gpus_view.html
+ *
+ * Copyright (c) 2021, NVIDIA CORPORATION.  All rights reserved.
+ *
+ * NVIDIA CORPORATION and its licensors retain all intellectual property
+ * and proprietary rights in and to this software, related documentation
+ * and any modifications thereto.  Any use, reproduction, disclosure or
+ * distribution of this software and related documentation without an express
+ * license agreement from NVIDIA CORPORATION is strictly prohibited.
+-->
+
+{% extends "dlprof/base.html" %} {% block content %}
+
+<div id="divGpusView"></div>
+
+{% load static %}
+<script src="{% static 'dlprof/GpusView.js' %}"></script>
+<script src="{% static 'dlprof/Globals.js' %}"></script>
+<script src="{% static 'dlprof/DbVersion.js' %}"></script>
+
+<script>
+  $(document).ready(function () {
+    if (DbVersion.isValidDbVersion()) {
+      loadHtml('#divGpusView', '{% static "dlprof/GpusView.html" %}');
+
+      Navbar.fillDroplists('{{ aggrID }}', '{{ domainName }}', showGpusView);
+    }
+  });
+
+  function showGpusView() {
+    const aggrID = localStorage.getItem(Globals.SELECTED_AGGREGATION_KEY);
+    const domainName = localStorage.getItem(Globals.SELECTED_DOMAIN_KEY);
+    Globals.init(aggrID, domainName);
+
+    ViewDroplist.selectView(ViewDroplist.VIEW_GPUS);
+
+    const gpusView = new GpusView();
+    gpusView.initViewGpus(aggrID, domainName);
+    Navbar.addDroplistListener(gpusView);
+  }
+</script>
+
+{% endblock %}

@@ -1,0 +1,165 @@
+<!-- !@file IterationsView.html
+ *
+ * Copyright (c) 2019-2021, NVIDIA CORPORATION.  All rights reserved.
+ *
+ * NVIDIA CORPORATION and its licensors retain all intellectual property
+ * and proprietary rights in and to this software, related documentation
+ * and any modifications thereto.  Any use, reproduction, disclosure or
+ * distribution of this software and related documentation without an express
+ * license agreement from NVIDIA CORPORATION is strictly prohibited.
+-->
+
+<!DOCTYPE html>
+
+<html>
+  <h2>Iterations</h2>
+
+  <br />
+
+  <div id="iterationsViewParentPanel" class="panel panel-nvidia-green">
+    <div class="panel-heading">Durations Across Iterations</div>
+
+    <div id="iterationsViewDurationsPleaseWait" class="pleaseWait">
+      <h5>Loading...</h5>
+    </div>
+
+    <div id="iterationsViewDurationsPanel" class="panel-body">
+      <div>
+        <div class="row">
+          <div class="col-md-3">
+            <div
+              class="btn-toolbar vertAlignCenter cudaNoWrap"
+              data-toggle="buttons"
+            >
+              <label
+                id="allIterations"
+                class="btn btn-default iterationDurationButton"
+              >
+                <input
+                  type="radio"
+                  name="iterationRangeSelectionName"
+                  value="allIterations"
+                />
+                All Iterations
+              </label>
+              <label
+                id="profiledIterations"
+                class="btn btn-default iterationDurationButton"
+              >
+                <input
+                  type="radio"
+                  name="iterationRangeSelectionName"
+                  value="profiledIterations"
+                />
+                Profiled Iterations
+              </label>
+            </div>
+          </div>
+          <div class="col-md-6 alignCenter">
+            <div id="reaggregate-setup-panel">
+              <table border="1" style="margin: auto">
+                <tr>
+                  <td colspan="5" style="padding: 4px">
+                    To reaggregate network, change values and click button
+                  </td>
+                </tr>
+                <tr>
+                  <td class="alignRight" style="padding: 4px">
+                    <span class="cudaNoWrap">Select Iter Start</span>
+                  </td>
+                  <td style="padding: 4px; padding-right: 18px">
+                    <input
+                      id="newIterStart"
+                      class="profileEndPoint"
+                      name="value"
+                    />
+                  </td>
+                  <td class="alignRight" style="padding: 4px">
+                    <span>Select Iter Stop</span>
+                  </td>
+                  <td style="padding: 4px">
+                    <input
+                      id="newIterStop"
+                      class="profileEndPoint"
+                      name="value"
+                    />
+                  </td>
+                  <td rowspan="3" style="padding: 4px">
+                    <button
+                      id="reaggregateButton"
+                      type="button"
+                      class="btn btn-primary"
+                    >
+                      Reaggregate
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="4" class="cudaNoWrap" style="padding: 4px">
+                    <label id="selectNodePrompt" for="selectNodeLabel"
+                      >Select Key Node</label
+                    >
+
+                    <input
+                      type="text"
+                      id="selectNodeLabel"
+                      name="selectNodeLabel"
+                      value=""
+                      readonly
+                    />
+
+                    <span
+                      id="selectNodeButton"
+                      class="clickableAwesomeFont vertAlignCenter"
+                      title="Click to pick key node"
+                    >
+                      <i class="fa fa-file-text-o fa-2x fa-expert-systems"></i>
+                    </span>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div id="iterationsViewBadgesPanel" class="floatRight">
+              <span class="badge badge-success"
+                >Total = <span id="iterTotal"></span
+              ></span>
+              <span class="badge badge-success"
+                >Profiled = <span id="iterProfiled"></span
+              ></span>
+              <span class="badge badge-success"
+                >Start = <span id="iterStart"></span
+              ></span>
+              <span class="badge badge-success"
+                >Stop = <span id="iterStop"></span
+              ></span>
+            </div>
+          </div>
+        </div>
+
+        <div id="iterationProblemDiv">
+          <br />
+          <span class="badIteration">
+            <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+            Warning!</span
+          >
+          <br />
+          Problem: <large><span id="iterationProblem"></span></large>
+          <br />
+          Recommendation: <span id="iterationRecommendation"></span>
+          <br />
+          <br />
+        </div>
+      </div>
+
+      <div>
+        <canvas
+          id="iterationsViewDurationsChart"
+          class="dlProfBarChart"
+        ></canvas>
+        <section id="chartButtons"></section>
+      </div>
+    </div>
+  </div>
+</html>

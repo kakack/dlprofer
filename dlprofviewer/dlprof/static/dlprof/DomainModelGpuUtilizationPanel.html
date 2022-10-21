@@ -1,0 +1,52 @@
+<!-- !@file DomainModelGpuUtilizationPanel.html
+ *
+ * Copyright (c) 2020-2021, NVIDIA CORPORATION.  All rights reserved.
+ *
+ * NVIDIA CORPORATION and its licensors retain all intellectual property
+ * and proprietary rights in and to this software, related documentation
+ * and any modifications thereto.  Any use, reproduction, disclosure or
+ * distribution of this software and related documentation without an express
+ * license agreement from NVIDIA CORPORATION is strictly prohibited.
+-->
+
+<!DOCTYPE html>
+
+<html>
+  <div class="panel-heading">
+    GPU Utilization (%) &nbsp;
+    <i
+      class="fa fa-info-circle"
+      title="Average GPU utilization across all GPUs."
+    ></i>
+  </div>
+  <div class="panel-body">
+    <div class="doughnut-chart-wrapper">
+      <div
+        id="gpuUtilizationPieChartLegend"
+        class="doughnut-chart-legend"
+      ></div>
+      <div class="doughnut-chart">
+        <canvas
+          id="gpuUtilizationPieChart"
+          class="dlProfPieChart"
+          width="100%"
+          height="100%"
+        ></canvas>
+      </div>
+    </div>
+    <div id="showGpusMenu" class="btn-group floatRight">
+      <a
+        href="#"
+        class="dropdown-toggle"
+        data-toggle="dropdown"
+        title="Click to see GPUs"
+        >More...</a
+      >
+      <ul class="dropdown-menu">
+        <li>
+          <a href="gpus_view.html">GPUs</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</html>

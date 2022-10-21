@@ -1,0 +1,64 @@
+<!-- !@file KernelDetailsPanel.html
+ *
+ * Copyright (c) 2020-2021, NVIDIA CORPORATION.  All rights reserved.
+ *
+ * NVIDIA CORPORATION and its licensors retain all intellectual property
+ * and proprietary rights in and to this software, related documentation
+ * and any modifications thereto.  Any use, reproduction, disclosure or
+ * distribution of this software and related documentation without an express
+ * license agreement from NVIDIA CORPORATION is strictly prohibited.
+-->
+
+<!DOCTYPE html>
+
+<html>
+  <div class="panel panel-nvidia-green vertAlignTop">
+    <div class="panel-heading">
+      Kernel Details
+      <div class="pull-right">
+        <i
+          id="closeKernelDetailsPanel"
+          class="fa fa-times"
+          title="Close details panel"
+          style="cursor: pointer"
+        ></i>
+      </div>
+    </div>
+    <div class="panel-body">
+      <table id="kernelDetailsTable" class="table table-condensed table-hover">
+        <header>
+          <th></th>
+          <th id="kernelsTotalGpuTime" class="text-right gpu-time-col">
+            Total GPU Time (ms)
+          </th>
+          <th class="text-right">Total Count</th>
+        </header>
+        <tbody>
+          <tr>
+            <td>All Kernels</td>
+            <td id="allKernelsGpuTime" class="text-right"></td>
+            <td id="allKernelsTotalCount" class="text-right"></td>
+          </tr>
+          <tr>
+            <td>Kernels Using TC</td>
+            <td id="tcKernelsGpuTime" class="text-right"></td>
+            <td id="tcKernelsTotalCount" class="text-right"></td>
+          </tr>
+          <tr>
+            <td>Memory Kernels</td>
+            <td id="memoryKernelsGpuTime" class="text-right"></td>
+            <td id="memoryKernelsTotalCount" class="text-right"></td>
+          </tr>
+          <tr>
+            <td>All Other Kernels</td>
+            <td id="otherKernelsGpuTime" class="text-right"></td>
+            <td id="otherKernelsTotalCount" class="text-right"></td>
+          </tr>
+        </tbody>
+      </table>
+      <small><b>TC</b> stands for "Tensor Cores"</small><br />
+      <small><b>GPU Time</b> is the cumulative time executing GPU kernels</small
+      ><br />
+    </div>
+  </div>
+</html>

@@ -1,0 +1,62 @@
+<!-- !@file KernelSummaryPanel.html
+ *
+ * Copyright (c) 2020-2021, NVIDIA CORPORATION.  All rights reserved.
+ *
+ * NVIDIA CORPORATION and its licensors retain all intellectual property
+ * and proprietary rights in and to this software, related documentation
+ * and any modifications thereto.  Any use, reproduction, disclosure or
+ * distribution of this software and related documentation without an express
+ * license agreement from NVIDIA CORPORATION is strictly prohibited.
+-->
+
+<!DOCTYPE html>
+
+<html>
+  <div class="panel-heading">
+    Total Kernel GPU Time (ms) &nbsp;
+    <i
+      id="KernelSummaryPanelInfo"
+      class="fa fa-info-circle"
+      title="Total GPU Time breakdown of kernels"
+    ></i>
+    <div class="pull-right">
+      <i
+        id="showKernelDetails"
+        class="fa fa-expand"
+        title="Show kernel details"
+        style="cursor: pointer"
+      ></i>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="doughnut-chart-wrapper">
+      <div
+        id="kernelUtilizationPieChartLegend"
+        class="doughnut-chart-legend"
+      ></div>
+      <div class="doughnut-chart">
+        <canvas
+          id="kernelUtilizationPieChart"
+          class="dlProfPieChart"
+          width="100%"
+          height="100%"
+        ></canvas>
+      </div>
+    </div>
+    <div id="showKernelsMenu" class="btn-group floatRight">
+      <a
+        href="#"
+        class="dropdown-toggle"
+        data-toggle="dropdown"
+        title="Click to see more views"
+        >More...</a
+      >
+      <ul class="dropdown-menu dropdown-menu-right">
+        <li>
+          <a href="kernels_by_iteration.html">Kernels by Iteration</a>
+        </li>
+        <li><a href="kernels_by_op.html">Kernels by Op</a></li>
+      </ul>
+    </div>
+  </div>
+</html>

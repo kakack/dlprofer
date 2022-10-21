@@ -1,0 +1,35 @@
+<!-- !@file ExpertSystemsPanel.html
+ *
+ * Copyright (c) 2020-2021, NVIDIA CORPORATION.  All rights reserved.
+ *
+ * NVIDIA CORPORATION and its licensors retain all intellectual property
+ * and proprietary rights in and to this software, related documentation
+ * and any modifications thereto.  Any use, reproduction, disclosure or
+ * distribution of this software and related documentation without an express
+ * license agreement from NVIDIA CORPORATION is strictly prohibited.
+-->
+
+<!DOCTYPE html>
+
+<html>
+  <div class="panel-heading cudaNoWrap">Expert Systems</div>
+  <div class="panel-body">
+    <p id="expertSystemsNoRecommendationsMessage" style="display: none">
+      No recommendations detected.
+    </p>
+    <table
+      id="feedbackTable"
+      class="table table-condensed table-hover"
+      style="display: none"
+    >
+      <header>
+        <tr>
+          <th></th>
+          <th>Problem</th>
+          <th>Recommendation</th>
+        </tr>
+      </header>
+      <tbody></tbody>
+    </table>
+  </div>
+</html>

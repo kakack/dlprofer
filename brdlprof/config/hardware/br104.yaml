@@ -1,0 +1,50 @@
+spc:
+  type: 1
+  size: 32768
+  group: 0
+  interval: 1000
+  mode: 0
+  mode_extra: 0 #slots
+  valid: yes
+cp:
+  type: 2
+  valid: no
+sdma:
+  type: 3
+  valid: no
+noc:
+  type: 4
+  node_enable: pfc_noc_enable
+  node_counter: pfc_noc_counter
+  size: 2048
+  interval: 1000
+  valid: yes
+hbmc:
+  type: 5
+  node_enable: pfc_hbmc_enable
+  node_counter: pfc_hbmc_counter
+  node_interval: pfc_hbmc_interval
+  size: 512
+  interval: 1
+  mode: 0
+  mode_extra: 800000000
+  valid: yes
+ha:
+  type: 7
+  node_enable: pfc_ha_enable
+  node_counter: pfc_ha_counter
+  size: 320
+  interval: 1000
+  valid: yes
+ddr:
+  type: 8
+  node_enable: pfc_ddr_enable
+  node_counter: pfc_ddr_counter
+  node_interval: pfc_ddr_interval
+  size: 512
+  interval: 1000
+  mode: 0
+  mode_extra: 0 #window size
+  valid: no
+
+

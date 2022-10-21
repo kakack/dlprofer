@@ -1,0 +1,46 @@
+<!-- !@file GpusView.html
+ *
+ * Copyright (c) 2019-2021, NVIDIA CORPORATION.  All rights reserved.
+ *
+ * NVIDIA CORPORATION and its licensors retain all intellectual property
+ * and proprietary rights in and to this software, related documentation
+ * and any modifications thereto.  Any use, reproduction, disclosure or
+ * distribution of this software and related documentation without an express
+ * license agreement from NVIDIA CORPORATION is strictly prohibited.
+-->
+
+<!DOCTYPE html>
+
+<html>
+  <h2>GPUs</h2>
+
+  <br />
+
+  <div id="gpusViewParentPanel" class="panel panel-nvidia-green inlineBlock">
+    <div class="panel-heading">
+      <span id="gpusViewChevron"><i class="fa fa-compress"></i></span>
+      GPU Utilizations Across All Devices
+    </div>
+
+    <div id="gpuViewsPanel" class="panel-body dlProfRow">
+      <div id="gpusViewChartcontainer" class="col-md-8">
+        <canvas id="gpusViewChart"></canvas>
+      </div>
+
+      <div id="gpuViewsTablePanel" class="col-md-4">
+        <table id="gpusViewTable" class="table table-condensed table-hover">
+          <thead>
+            <tr>
+              <td class="alignCenter">Device ID</td>
+              <td>GPU Name</td>
+              <td>GPU Utilization</td>
+              <td>Compute Capability</td>
+              <td>SM Count</td>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</html>

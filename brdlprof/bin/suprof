@@ -1,0 +1,44 @@
+#!/bin/bash
+
+usage(){
+cat << EOF
+Useage: suprof <your app>
+
+Other env variables:
+        PERF_EXE=target_process
+        PERF_FILTER=filter_string, for example, ".*" denotes to all enabled
+        PERF_GROUP=number, where is from 0 to 4
+        PERF_FILTER=besu.* //trace besu funtions only, supa functions will be disabled
+        PERF_CPTS=1 //print more timestamp information for kernel events
+        PERF_HBMC=1 //enable hbmc counter dump
+        PERF_NOC=1 //enable noc counter dump
+        PERF_NOC_INTERVAL=** //Set the interval(millisecond) to do the next noc dump, default is 1s
+        PERF_HA=1 //enable HA counter dump
+        PERF_HA_INTERVAL=* //Set the interval(millisecond) to do the next HA dump, default is 1s
+-s      oneshot
+-d      dummy (endless loop)
+EOF
+}
+
+if [ $# -eq 0 ]; then
+        usage
+	exit
+fi
+
+sudo mkdir -p /run/suprof
+sudo chmod 777 /run/suprof
+S=$(sed -n "1,1p" `dirname $0`/.config)
+SP=$(sed -n "2,2p" `dirname $0`/.config)
+A=$(/bin/echo -en "${SP}LOAD=${S}")
+
+if [ $1 = -s ]; then
+    A="${A} exec `dirname $0`/dummy_s"
+elif [ $1 = -d ]; then
+    A="${A} exec `dirname $0`/dummy"
+else
+    A="${A} exec $@"
+fi
+
+export LD_LIBRARY_PATH=`dirname $0`/../lib:${LD_LIBRARY_PATH}
+export SUPTI_HOME=`dirname $0`/../
+eval ${A}

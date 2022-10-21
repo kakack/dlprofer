@@ -1,0 +1,11 @@
+envs:
+  #perf_exe: ""
+  #perf_filter: ""
+  #logdir: ""
+  trace_succl: no
+  host_only: no
+  ha_counter_enable: no
+  noc_counter_enable: no
+  hbmc_counter_enable: no
+  spc_counter_group: 0
+  graph_mode: g

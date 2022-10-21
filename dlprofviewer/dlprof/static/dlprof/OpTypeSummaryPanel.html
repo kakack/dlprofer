@@ -1,0 +1,79 @@
+<!-- !@file OpTypeSummaryPanel.html
+ *
+ * Copyright (c) 2019-2021, NVIDIA CORPORATION.  All rights reserved.
+ *
+ * NVIDIA CORPORATION and its licensors retain all intellectual property
+ * and proprietary rights in and to this software, related documentation
+ * and any modifications thereto.  Any use, reproduction, disclosure or
+ * distribution of this software and related documentation without an express
+ * license agreement from NVIDIA CORPORATION is strictly prohibited.
+-->
+
+<!DOCTYPE html>
+
+<html>
+  <h2>Op Type Summary</h2>
+
+  <br />
+
+  <div class="panel panel-nvidia-green inlineBlock minWidthPanel">
+    <div class="panel-heading">Op Types</div>
+    <div id="opTypeSummaryPanel" class="panel-body">
+      <table
+        id="datatableOpTypeSummary"
+        class="
+          table table-condensed table-striped table-bordered
+          dlProfDataTable
+        "
+      >
+        <thead>
+          <tr>
+            <th
+              rowspan="2"
+              colspan="1"
+              class="vertAlignCenter"
+              id="opTypeColHdr"
+            >
+              Op Type
+            </th>
+            <th rowspan="2" colspan="1" class="vertAlignCenter sortDescFirst">
+              # Ops
+            </th>
+            <th rowspan="2" colspan="1" class="vertAlignCenter sortDescFirst">
+              # Calls
+            </th>
+            <th rowspan="1" colspan="4" class="alignCenter">CPU Time (ns)</th>
+            <th rowspan="1" colspan="4" class="alignCenter">GPU Time (ns)</th>
+            <th rowspan="1" colspan="4" class="alignCenter">
+              CPU Overhead Time (ns)
+            </th>
+            <th rowspan="1" colspan="4" class="alignCenter">
+              GPU Idle Time (ns)
+            </th>
+          </tr>
+          <tr>
+            <th class="sortDescFirst">Total</th>
+            <th class="sortDescFirst">Avg</th>
+            <th class="sortDescFirst">Min</th>
+            <th class="sortDescFirst">Max</th>
+
+            <th class="sortDescFirst">Total</th>
+            <th class="sortDescFirst">Avg</th>
+            <th class="sortDescFirst">Min</th>
+            <th class="sortDescFirst">Max</th>
+
+            <th class="sortDescFirst">Total</th>
+            <th class="sortDescFirst">Avg</th>
+            <th class="sortDescFirst">Min</th>
+            <th class="sortDescFirst">Max</th>
+
+            <th class="sortDescFirst">Total</th>
+            <th class="sortDescFirst">Avg</th>
+            <th class="sortDescFirst">Min</th>
+            <th class="sortDescFirst">Max</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+</html>

@@ -1,0 +1,39 @@
+<!-- !@file ResourceUsageBreakdownPanel.html
+ *
+ * Copyright (c) 2021, NVIDIA CORPORATION.  All rights reserved.
+ *
+ * NVIDIA CORPORATION and its licensors retain all intellectual property
+ * and proprietary rights in and to this software, related documentation
+ * and any modifications thereto.  Any use, reproduction, disclosure or
+ * distribution of this software and related documentation without an express
+ * license agreement from NVIDIA CORPORATION is strictly prohibited.
+-->
+
+<!DOCTYPE html>
+
+<html>
+  <div class="panel-heading">
+    Resource Usage Breakdown &nbsp;
+    <i
+      id="ResourceUsageBreakdownPanelInfo"
+      class="fa fa-info-circle"
+      title="Breakdown of profile activity into resource categories"
+    ></i>
+  </div>
+  <div class="panel-body">
+    <div class="doughnut-chart-wrapper">
+      <div
+        id="resourceUsageBreakdownPieChartLegend"
+        class="doughnut-chart-legend"
+      ></div>
+      <div class="doughnut-chart">
+        <canvas
+          id="resourceUsageBreakdownPieChart"
+          class="dlProfPieChart"
+          width="100%"
+          height="100%"
+        ></canvas>
+      </div>
+    </div>
+  </div>
+</html>

@@ -1,0 +1,35 @@
+<!-- !@file TcUtilizationPanel.html
+ *
+ * Copyright (c) 2020-2021, NVIDIA CORPORATION.  All rights reserved.
+ *
+ * NVIDIA CORPORATION and its licensors retain all intellectual property
+ * and proprietary rights in and to this software, related documentation
+ * and any modifications thereto.  Any use, reproduction, disclosure or
+ * distribution of this software and related documentation without an express
+ * license agreement from NVIDIA CORPORATION is strictly prohibited.
+-->
+
+<!DOCTYPE html>
+
+<html>
+  <div class="panel-heading">
+    Tensor Core Kernel Efficiency (%) &nbsp;
+    <i
+      class="fa fa-info-circle"
+      title="100 * (Time of Tensor Core Kernels) / (Total time of all kernels in Tensor Core eligible nodes)"
+    ></i>
+  </div>
+  <div class="panel-body">
+    <div class="doughnut-chart-wrapper">
+      <div id="tcUtilizationPieChartLegend" class="doughnut-chart-legend"></div>
+      <div class="doughnut-chart">
+        <canvas
+          id="tcUtilizationPieChart"
+          class="dlProfPieChart"
+          width="100%"
+          height="100%"
+        ></canvas>
+      </div>
+    </div>
+  </div>
+</html>

@@ -1,0 +1,47 @@
+<!-- !@file GuidancePanel.html
+ *
+ * Copyright (c) 2020-2021, NVIDIA CORPORATION.  All rights reserved.
+ *
+ * NVIDIA CORPORATION and its licensors retain all intellectual property
+ * and proprietary rights in and to this software, related documentation
+ * and any modifications thereto.  Any use, reproduction, disclosure or
+ * distribution of this software and related documentation without an express
+ * license agreement from NVIDIA CORPORATION is strictly prohibited.
+-->
+
+<!DOCTYPE html>
+
+<head> </head>
+
+<html>
+  <div class="panel-heading">Guidance</div>
+  <div class="panel-body guidanceText">
+    Understanding GPU utilization and timing details of the operations is the
+    first step in profiling your model.
+    <ul>
+      <li>
+        To learn more about Tensor cores and Mixed Precision training, visit
+        this site:<a
+          href="https://developer.nvidia.com/tensor_cores"
+          target="_blank"
+          >https://developer.nvidia.com/tensor_cores</a
+        >
+      </li>
+      <li>
+        You will find resources on how to train networks with mixed precision
+        and make full use of Tensor cores for Tensorflow models here:
+        <a
+          href="https://docs.nvidia.com/deeplearning/sdk/mixed-precision-training/index.html#training_tensorflow"
+          target="_blank"
+          >https://docs.nvidia.com/deeplearning/sdk/mixed-precision-training/index.html#training_tensorflow</a
+        >
+      </li>
+      <li>
+        Note that if there are multiple kernels being observed on single op, 
+        these are likely performing data transposes to prepare the data
+        for efficient use by tensorcores. Such transposes themselves would not
+        use tensor cores.
+      </li>
+    </ul>
+  </div>
+</html>

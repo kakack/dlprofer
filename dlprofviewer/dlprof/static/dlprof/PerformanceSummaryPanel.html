@@ -1,0 +1,102 @@
+<!-- !@file PerformanceSummaryPanel.html
+ *
+ * Copyright (c) 2020-2021, NVIDIA CORPORATION.  All rights reserved.
+ *
+ * NVIDIA CORPORATION and its licensors retain all intellectual property
+ * and proprietary rights in and to this software, related documentation
+ * and any modifications thereto.  Any use, reproduction, disclosure or
+ * distribution of this software and related documentation without an express
+ * license agreement from NVIDIA CORPORATION is strictly prohibited.
+-->
+
+<!DOCTYPE html>
+
+<html>
+  <div class="panel-heading">Performance Summary</div>
+  <div class="panel-body">
+    <div class="inlineBlock panel-body">
+      <table id="performanceSummaryTable" class="table table-condensed table-hover">
+        <tbody>
+          <tr>
+            <td>
+              Wall Clock Time (<span id="perfWallUnits"></span>) &nbsp;
+              <i
+                class="fa fa-info-circle"
+                title="Duration of aggregated iterations"
+              ></i>
+            </td>
+            <td id="perfWallTime" class="text-right"></td>
+          </tr>
+          <tr>
+            <td>
+              <span class="cudaNoWrap"
+                >Tensor Core Kernel Efficiency (%) &nbsp;
+                <i
+                  class="fa fa-info-circle"
+                  title="100 * (Time of Tensor Core Kernels) / (Total time of all kernels in Tensor Core eligible nodes)"
+                >
+                </i>
+              </span>
+            </td>
+            <td id="perfTcUtilization" class="text-right"></td>
+          </tr>
+          <tr>
+            <td>
+              GPU Utilization (%) &nbsp;
+              <i
+                class="fa fa-info-circle"
+                title="Average GPU utilization across all GPUs."
+              ></i>
+            </td>
+            <td id="perfGpuUtilizationPercent" class="text-right"></td>
+          </tr>
+          <tr>
+            <td>
+              Total Iterations &nbsp;
+              <i
+                class="fa fa-info-circle"
+                title="Total number of iterations found in the model"
+              ></i>
+            </td>
+            <td id="perfIterationTotal" class="text-right"></td>
+          </tr>
+
+          <tr>
+            <td>
+              Profiled Iterations &nbsp;
+              <i
+                class="fa fa-info-circle"
+                title="The number of iteration via --iter_start and --iter_stop on DLProf cmdline"
+              ></i>
+            </td>
+            <td id="perfIterationAggregated" class="text-right"></td>
+          </tr>
+
+          <tr>
+            <td>Start Iteration</td>
+            <td id="perfIterationStart" class="text-right"></td>
+          </tr>
+
+          <tr>
+            <td>Stop Iteration</td>
+            <td id="perfIterationStop" class="text-right"></td>
+          </tr>
+
+          <tr>
+            <td>
+              Average Iteration Time (<span
+                id="perfAverageIterationUnits"
+              ></span
+              >) &nbsp;
+              <i
+                class="fa fa-info-circle"
+                title="Average time of each aggregated iteration"
+              ></i>
+            </td>
+            <td id="perfAverageIterationTime" class="text-right"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</html>

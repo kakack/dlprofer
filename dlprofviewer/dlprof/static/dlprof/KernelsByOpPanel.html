@@ -1,0 +1,84 @@
+<!-- !@file KernelsByOpPanel.html
+ *
+ * Copyright (c) 2019-2021, NVIDIA CORPORATION.  All rights reserved.
+ *
+ * NVIDIA CORPORATION and its licensors retain all intellectual property
+ * and proprietary rights in and to this software, related documentation
+ * and any modifications thereto.  Any use, reproduction, disclosure or
+ * distribution of this software and related documentation without an express
+ * license agreement from NVIDIA CORPORATION is strictly prohibited.
+-->
+
+<!DOCTYPE html>
+
+<html>
+  <h2>Kernels By Op</h2>
+
+  <br />
+  
+  <div id='IterationSummaryByOp'></div>
+  
+  <br />
+  
+  <div id="opsInIterationParentPanel" class="panel panel-nvidia-green inlineBlock minWidthPanel">
+    <div class="panel-heading">
+      <span id='opsInIterationTableChevron'><i class="fa fa-compress"></i></span> Ops in Selected Iteration
+    </div>
+  
+    <div id='opsInIterationTablePanel' class="panel-body">
+      <div id='clickAnOp' class='col-md-12 clickARowInstruction' style='display:none'>
+        <span id='iterationSelectionDescriptionOp'></span>
+        <br/>
+        <span><large><i class="fa fa-info-circle" aria-hidden="true"></i> Click an op to see its kernels below</large></span>
+      </div>
+      <br/>
+      <table id="datatableOpsInIteration"
+        class="table table-condensed table-striped table-bordered dlProfDataTable">
+        <thead>
+          <tr>
+            <th>Op ID</th>
+            <th>Op Name</th>
+            <th>Direction</th>
+            <th>Op Type</th>
+            <th class='cudaNoWrap sortDescFirst'>Total Kernels</th>
+            <th class='cudaNoWrap sortDescFirst'>TC Kernels</th>
+            <th class='cudaNoWrap sortDescFirst'>Total GPU Time (ns)</th>
+            <th class='cudaNoWrap sortDescFirst'>TC GPU Time (ns)</th>
+            <th>Data Type</th>
+            <th>Stack Trace</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+  
+  <br />
+  
+  <div id="kernelsInOpParentPanel" class="panel panel-nvidia-green inlineBlock minWidthPanel">
+    <div class="panel-heading">
+      <span id='kernelsInOpTableChevron'><iclass="fa fa-compress"></i></span> Kernels in Selected Op
+    </div>
+    <div id='kernelsInOpTablePanel' class="panel-body">
+        <div class='col-md-12 clickARowInstruction'>
+          <span class='tooManyKernelsWarning' style='display: none'></span>
+        </div>
+        <div class='col-md-12 clickARowInstruction'>
+        <span id='iterationAndOpSelectionDescription'></span>
+      </div>
+      <table id="datatableKernelsInOp"
+        class="table table-condensed table-striped table-bordered dlProfDataTable">
+        <thead>
+          <tr>
+            <th>Kernel Name</th>
+            <th>Device ID</th>
+            <th>Kernel Timestamp (ns)</th>
+            <th class='sortDescFirst'>GPU Time (ns)</th>
+            <th class='sortDescFirst'>Uses TC</th>
+            <th>Grid</th>
+            <th>Block</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+</html>

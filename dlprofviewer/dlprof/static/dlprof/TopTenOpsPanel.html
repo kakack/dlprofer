@@ -1,0 +1,34 @@
+<!-- !@file TopTenOpsPanel.html
+ *
+ * Copyright (c) 2020-2021, NVIDIA CORPORATION.  All rights reserved.
+ *
+ * NVIDIA CORPORATION and its licensors retain all intellectual property
+ * and proprietary rights in and to this software, related documentation
+ * and any modifications thereto.  Any use, reproduction, disclosure or
+ * distribution of this software and related documentation without an express
+ * license agreement from NVIDIA CORPORATION is strictly prohibited.
+-->
+
+<!DOCTYPE html>
+
+<html>
+  <div class="panel-heading">Top 10 GPU Ops</div>
+  <div class="panel-body">
+    <table
+      id="datatableSummaryTopTenOps"
+      class="table compact table-condensed table-striped table-bordered dlProfDataTable"
+    >
+      <thead>
+        <tr>
+          <th>GPU Time (ns)</th>
+          <th>Op Name</th>
+          <th>Direction</th>
+          <th class="cudaNoWrap">Op Type</th>
+          <th>Calls</th>
+          <th>TC Eligible</th>
+          <th>Using TC</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+</html>

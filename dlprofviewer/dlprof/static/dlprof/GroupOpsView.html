@@ -1,0 +1,72 @@
+<!-- !@file GroupOpsView.html
+ *
+ * Copyright (c) 2021, NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+ *
+ * NVIDIA CORPORATION and its licensors retain all intellectual property
+ * and proprietary rights in and to this software, related documentation
+ * and any modifications thereto.  Any use, reproduction, disclosure or
+ * distribution of this software and related documentation without an express
+ * license agreement from NVIDIA CORPORATION is strictly prohibited.
+-->
+
+<!DOCTYPE html>
+
+<html>
+  <h2>Group Ops View</h2>
+
+  <br />
+
+  <div class="panel panel-nvidia-green inlineBlock minWidthPanel">
+    <div class="panel-heading">Group Ops</div>
+    <div id="opTypeSummaryPanel" class="panel-body">
+      <div id="treetable-header">
+        <div id="rowSelectionDiv" class="inlineBlock vertAlignCenter">
+          <div id="selectedGroupOpLabel" style="display: none">
+            <span class="groupOpsRowType"></span> Name Selected:
+            <span id="selectedGroupOpSpan"></span>
+          </div>
+
+          <table
+            id="selectedGroupOpTable"
+            class="table-bordered"
+            style="display: none"
+          >
+            <tr>
+              <td><span class="groupOpsRowType"></span> ID Selected:</td>
+              <td id="selectedGroupOpIDSpan"></td>
+            </tr>
+            <tr>
+              <td><span class="groupOpsRowType"></span> Name Selected:</td>
+              <td id="selectedGroupOpNameSpan"></td>
+            </tr>
+          </table>
+        </div>
+        <div id='treeTableButtons' selectionButtons' class="floatRight vertAlignCenter">
+          <button class="btn btn-primary" id="expand">Expand all</button>
+          <button class="btn btn-primary" id="collapse">Collapse all</button>
+        </div>
+      </div>
+
+      <table
+        id="group-ops-treetable"
+        class="table table-striped dlProfDataTable compact"
+        width="100%"
+      >
+        <thead>
+          <th id="groupOrOpHdr" class="vertAlignCenter"></th>
+          <th class="vertAlignCenter">ID</th>
+          <th class="vertAlignCenter">Name</th>
+          <th class="vertAlignCenter wideGroupOpsName">Name</th>
+          <th class="vertAlignCenter">Level</th>
+          <th class="vertAlignCenter" class="sortDescFirst">Num Calls Aggregated</th>
+          <th class="vertAlignCenter" class="sortDescFirst">Num TC Eligible Ops</th>
+          <th class="vertAlignCenter" class="sortDescFirst">Num Ops Using TC</th>
+          <th  id="groupOpsCpuTimeCol"class="vertAlignCenter" class="sortDescFirst">CPU Time (ns)</th>
+          <th class="vertAlignCenter" class="sortDescFirst">GPU Time (ns)</th>
+          <th class="vertAlignCenter" class="sortDescFirst">CPU Overhead Time (ns)</th>
+          <th class="vertAlignCenter" class="sortDescFirst">GPU Idle Time (ns)</th>
+        </thead>
+      </table>
+    </div>
+  </div>
+</html>

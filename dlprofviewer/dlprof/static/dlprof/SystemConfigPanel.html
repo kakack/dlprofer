@@ -1,0 +1,77 @@
+<!-- !@file SystemConfigPanel.html
+ *
+ * Copyright (c) 2020-2021, NVIDIA CORPORATION.  All rights reserved.
+ *
+ * NVIDIA CORPORATION and its licensors retain all intellectual property
+ * and proprietary rights in and to this software, related documentation
+ * and any modifications thereto.  Any use, reproduction, disclosure or
+ * distribution of this software and related documentation without an express
+ * license agreement from NVIDIA CORPORATION is strictly prohibited.
+-->
+
+<!DOCTYPE html>
+
+<html>
+  <div class="panel-heading">System Config</div>
+  <div class="panel-body">
+    <table
+      id="systemConfigurationTable"
+      class="table table-condensed table-hover"
+    >
+      <tbody>
+        <tr>
+          <td>Profile Name</td>
+          <td id="systemConfigProfileName" class="text-right"></td>
+        </tr>
+        <tr>
+          <td>GPU Count</td>
+          <td id="systemConfigGpuCount" class="text-right"></td>
+        </tr>
+        <tr>
+          <td>GPU Name(s)</td>
+          <td id="systemConfigGpuNames" class="text-right"></td>
+        </tr>
+        <tr>
+          <td>CPU Model</td>
+          <td id="systemConfigCpuModel" class="text-right"></td>
+        </tr>
+        <tr>
+          <td>GPU Driver Version</td>
+          <td id="systemConfigSupaDriverVersion" class="text-right"></td>
+        </tr>
+        <tr>
+          <td>Framework</td>
+          <td nowrap id="systemConfigFramework" class="text-right"></td>
+        </tr>
+        <tr>
+          <td>SUPA Version</td>
+          <td id="systemConfigSupaVersion" class="text-right"></td>
+        </tr>
+        <tr>
+          <td>suDNN Version</td>
+          <td id="systemConfigSudnnVersion" class="text-right"></td>
+        </tr>
+        <tr>
+          <td>SuSight Version</td>
+          <td id="systemConfigSusightVersion" class="text-right"></td>
+        </tr>
+        <tr>
+          <td>DLProf CLI Version</td>
+          <td id="systemConfigDlprofCliVersion" class="text-right"></td>
+        </tr>
+        <tr>
+          <td>DLProf DB Version</td>
+          <td id="systemConfigDlprofDbVersion" class="text-right"></td>
+        </tr>
+        <tr id="trDlprofViewerVersion">
+          <td nowrap>DLProf Viewer Version</td>
+          <td
+            nowrap
+            id="systemConfigDlprofViewerVersion"
+            class="text-right"
+          ></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</html>

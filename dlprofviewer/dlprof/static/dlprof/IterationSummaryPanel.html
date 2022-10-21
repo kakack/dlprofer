@@ -1,0 +1,65 @@
+<!-- !@file IterationSummaryPanel.html
+ *
+ * Copyright (c) 2020-2021, NVIDIA CORPORATION.  All rights reserved.
+ *
+ * NVIDIA CORPORATION and its licensors retain all intellectual property
+ * and proprietary rights in and to this software, related documentation
+ * and any modifications thereto.  Any use, reproduction, disclosure or
+ * distribution of this software and related documentation without an express
+ * license agreement from NVIDIA CORPORATION is strictly prohibited.
+-->
+
+<div class="panel panel-nvidia-green inlineBlock minWidthPanel">
+  <div class="panel-heading">
+    <span id="iterationSummaryChevron"><i class="fa fa-compress"></i></span>
+    Iteration Summary
+  </div>
+  <div id="iterationSummaryPanel" class="panel-body">
+    <div id="infoMessages" class="col-md-12">
+      <div
+        id="iterationSummaryClickInstructions"
+        class="col-md-4 clickARowInstruction"
+      >
+        <span
+          ><large
+            ><i class="fa fa-info-circle" aria-hidden="true"></i> Click an
+            iteration to see its data</large
+          ></span
+        >
+      </div>
+
+      <div class="col-md-8 clickARowInstruction iterationSummaryAverageInfo">
+        <span id="iterationSummaryAverageText" class="floatRight"
+          ><large
+            ><i class="fa fa-info-circle" aria-hidden="true"></i> Average GPU
+            Time is "Total GPU Time" divided by number of GPUs (<span
+              class="gpu-count"
+            ></span
+            >)</large
+          ></span
+        >
+      </div>
+    </div>
+
+    <br />
+    <table
+      id="iterationSummaryTable"
+      class="table table-condensed table-striped table-bordered dlProfDataTable"
+    >
+      <thead>
+        <tr>
+          <th>Iteration</th>
+          <th>Timestamp (ns)</th>
+          <!-- prettier-ignore -->
+          <th class="sortDescFirst">Duration (<span class="iterationSummaryTableUnits">ns</span>)</th>
+          <th class="sortDescFirst">Total Kernels</th>
+          <th class="sortDescFirst">TC Kernels</th>
+          <!-- prettier-ignore -->
+          <th class="sortDescFirst">Average GPU Time (<span class="iterationSummaryTableUnits">ns</span>)</th>
+          <!-- prettier-ignore -->
+          <th class="sortDescFirst">Average TC GPU Time (<span class="iterationSummaryTableUnits">ns</span>)</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+</div>

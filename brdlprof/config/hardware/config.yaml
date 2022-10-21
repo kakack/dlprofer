@@ -1,0 +1,6 @@
+chiplist:
+  #vendor-device: chip_config.yml
+  1ee0-0000: br100.yaml
+  1ee0-000f: br104.yaml
+  1ee0-0020: br110.yaml
+

@@ -1,0 +1,50 @@
+<!-- !@file op_type_summary.html
+ *
+ * Copyright (c) 2021, NVIDIA CORPORATION.  All rights reserved.
+ *
+ * NVIDIA CORPORATION and its licensors retain all intellectual property
+ * and proprietary rights in and to this software, related documentation
+ * and any modifications thereto.  Any use, reproduction, disclosure or
+ * distribution of this software and related documentation without an express
+ * license agreement from NVIDIA CORPORATION is strictly prohibited.
+-->
+
+{% extends "dlprof/base.html" %} {% block content %}
+
+<div id="divOpTypeSummary"></div>
+
+{% load static %}
+<script src="{% static 'dlprof/OpTypeSummaryPanel.js' %}"></script>
+<script src="{% static 'dlprof/Globals.js' %}"></script>
+<script src="{% static 'dlprof/DbVersion.js' %}"></script>
+
+<script>
+  $(document).ready(function () {
+    if (DbVersion.isValidDbVersion()) {
+      loadHtml(
+        '#divOpTypeSummary',
+        '{% static "dlprof/OpTypeSummaryPanel.html" %}'
+      );
+
+      Navbar.fillDroplists(
+        '{{ aggrID }}',
+        '{{ domainName }}',
+        showOpTypeSummary
+      );
+    }
+  });
+
+  function showOpTypeSummary() {
+    const aggrID = localStorage.getItem(Globals.SELECTED_AGGREGATION_KEY);
+    const domainName = localStorage.getItem(Globals.SELECTED_DOMAIN_KEY);
+    Globals.init(aggrID, domainName);
+
+    ViewDroplist.selectView(ViewDroplist.VIEW_OP_TYPE_SUMMARY);
+
+    const opTypeSummaryPanel = new OpTypeSummaryPanel();
+    opTypeSummaryPanel.initOpTypeSummaryTable(aggrID, domainName);
+    Navbar.addDroplistListener(opTypeSummaryPanel);
+  }
+</script>
+
+{% endblock %}

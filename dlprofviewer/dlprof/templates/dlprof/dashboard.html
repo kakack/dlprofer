@@ -1,0 +1,197 @@
+<!-- !@file dashboard.html
+ *
+ * Copyright (c) 2021, NVIDIA CORPORATION.  All rights reserved.
+ *
+ * NVIDIA CORPORATION and its licensors retain all intellectual property
+ * and proprietary rights in and to this software, related documentation
+ * and any modifications thereto.  Any use, reproduction, disclosure or
+ * distribution of this software and related documentation without an express
+ * license agreement from NVIDIA CORPORATION is strictly prohibited.
+-->
+
+{% extends "dlprof/base.html" %} {% block content %}
+
+<div>
+  <div id="dlProfDashboard">
+    <div class="dlProfRow">
+      <div
+        id="domainModelGpuUtilizationPanel"
+        class="
+          panel panel-nvidia-green
+          inlineBlock
+          vertAlignTop
+          sameHeightColumn
+          evenlyStretchedRowElement
+          doughnut-panel
+        "
+      ></div>
+      <div
+        id="resourceUsageBreakdownPanel"
+        class="
+          panel panel-nvidia-green
+          inlineBlock
+          vertAlignTop
+          sameHeightColumn
+          evenlyStretchedRowElement
+          doughnut-panel
+        "
+      ></div>
+      <div
+        id="kernelSummaryPanel"
+        class="
+          panel panel-nvidia-green
+          inlineBlock
+          vertAlignTop
+          sameHeightColumn
+          evenlyStretchedRowElement
+          doughnut-panel
+        "
+      ></div>
+      <div
+        id="tcUtilizationPanel"
+        class="
+          panel panel-nvidia-green
+          inlineBlock
+          vertAlignTop
+          sameHeightColumn
+          evenlyStretchedRowElement
+          doughnut-panel
+        "
+      ></div>
+    </div>
+
+    <div class="dlProfRow">
+      <div
+        id="performanceSummaryPanel"
+        class="
+          panel panel-nvidia-green
+          inlineBlock
+          vertAlignTop
+          sameHeightColumn
+        "
+      ></div>
+      <div
+        id="iterationDashboardPanel"
+        class="
+          panel panel-nvidia-green
+          inlineBlock
+          vertAlignTop
+          sameHeightColumn
+        "
+      ></div>
+      <div
+        id="topTenOpsPanel"
+        class="
+          panel panel-nvidia-green
+          inlineBlock
+          vertAlignTop
+          sameHeightColumn
+          evenlyStretchedRowElement
+        "
+      ></div>
+    </div>
+
+    <div class="dlProfRow">
+      <div
+        id="systemConfigPanel"
+        class="
+          panel panel-nvidia-green
+          inlineBlock
+          vertAlignTop
+          sameHeightColumn
+        "
+      ></div>
+      <div
+        id="expertSystemsPanel"
+        class="
+          panel panel-nvidia-green
+          inlineBlock
+          vertAlignTop
+          sameHeightColumn
+        "
+      ></div>
+      <div
+        id="guidancePanel"
+        class="
+          panel panel-nvidia-green
+          inlineBlock
+          vertAlignTop
+          sameHeightColumn
+        "
+      ></div>
+    </div>
+  </div>
+</div>
+
+{% load static %}
+<script src="{% static 'dlprof/Dashboard.js' %}"></script>
+<script src="{% static 'dlprof/DomainModelGpuUtilizationPanel.js' %}"></script>
+<script src="{% static 'dlprof/ResourceUsageBreakdownPanel.js' %}"></script>
+<script src="{% static 'dlprof/KernelSummaryPanel.js' %}"></script>
+<script src="{% static 'dlprof/TcUtilizationPanel.js' %}"></script>
+<script src="{% static 'dlprof/PerformanceSummaryPanel.js' %}"></script>
+<script src="{% static 'dlprof/IterationDashboardPanel.js' %}"></script>
+<script src="{% static 'dlprof/TopTenOpsPanel.js' %}"></script>
+<script src="{% static 'dlprof/SystemConfigPanel.js' %}"></script>
+<script src="{% static 'dlprof/ExpertSystemsPanel.js' %}"></script>
+<script src="{% static 'dlprof/IterationsChart.js' %}"></script>
+<script src="{% static 'dlprof/DLprofPieChart.js' %}"></script>
+<script src="{% static 'dlprof/Globals.js' %}"></script>
+<script src="{% static 'dlprof/DbVersion.js' %}"></script>
+
+<script>
+  $(document).ready(function () {
+    if (DbVersion.isValidDbVersion()) {
+      Navbar.fillDroplists('{{ aggrID }}', '{{ domainName }}', showDashboard);
+    }
+  });
+
+  function showDashboard() {
+    loadHtml(
+      '#domainModelGpuUtilizationPanel',
+      '{% static "dlprof/DomainModelGpuUtilizationPanel.html" %}'
+    );
+    loadHtml(
+      '#resourceUsageBreakdownPanel',
+      '{% static "dlprof/ResourceUsageBreakdownPanel.html" %}'
+    );
+    loadHtml(
+      '#kernelSummaryPanel',
+      '{% static "dlprof/KernelSummaryPanel.html" %}'
+    );
+    loadHtml(
+      '#tcUtilizationPanel',
+      '{% static "dlprof/TcUtilizationPanel.html" %}'
+    );
+    loadHtml(
+      '#performanceSummaryPanel',
+      '{% static "dlprof/PerformanceSummaryPanel.html" %}'
+    );
+    loadHtml(
+      '#iterationDashboardPanel',
+      '{% static "dlprof/IterationDashboardPanel.html" %}'
+    );
+    loadHtml('#topTenOpsPanel', '{% static "dlprof/TopTenOpsPanel.html" %}');
+    loadHtml(
+      '#systemConfigPanel',
+      '{% static "dlprof/SystemConfigPanel.html" %}'
+    );
+    loadHtml(
+      '#expertSystemsPanel',
+      '{% static "dlprof/ExpertSystemsPanel.html" %}'
+    );
+    loadHtml('#guidancePanel', '{% static "dlprof/GuidancePanel.html" %}');
+
+    const aggrID = localStorage.getItem(Globals.SELECTED_AGGREGATION_KEY);
+    const domainName = localStorage.getItem(Globals.SELECTED_DOMAIN_KEY);
+    Globals.init(aggrID, domainName);
+
+    ViewDroplist.selectView(ViewDroplist.VIEW_DASHBOARD);
+
+    const dashboard = new Dashboard();
+    dashboard.fillDashboard(aggrID, domainName);
+    Navbar.addDroplistListener(dashboard);
+  }
+</script>
+
+{% endblock %}

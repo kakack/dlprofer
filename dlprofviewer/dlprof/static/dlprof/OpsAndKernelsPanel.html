@@ -1,0 +1,117 @@
+<!-- !@file OpsAndKernelsPanel.html
+ *
+ * Copyright (c) 2019-2021, NVIDIA CORPORATION.  All rights reserved.
+ *
+ * NVIDIA CORPORATION and its licensors retain all intellectual property
+ * and proprietary rights in and to this software, related documentation
+ * and any modifications thereto.  Any use, reproduction, disclosure or
+ * distribution of this software and related documentation without an express
+ * license agreement from NVIDIA CORPORATION is strictly prohibited.
+-->
+
+<!DOCTYPE html>
+
+<html>
+  <h2>Ops and Kernel Summaries</h2>
+
+  <br />
+
+  <div class="panel panel-nvidia-green inlineBlock minWidthPanel">
+    <div class="panel-heading">
+      <span id="opsTableChevron"><i class="fa fa-compress"></i></span> Ops
+    </div>
+    <div id="opsTablePanel" class="panel-body">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="col-md-12 clickARowInstruction badOpSelector">
+            <span class="badOp"
+              ><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+              Warning!</span
+            >
+            <br />
+            Problem: <large><span id="problem"></span></large>
+            <br />
+            Recommendation: <span id="recommendation"></span>
+            <br />
+          </div>
+        </div>
+        <div class="col-md-4">
+          <span class="badOpSelector" style="float: right">
+            <button id="showBadOpsButton" type="button" class="btn btn-primary">
+              Show Bad Ops
+            </button>
+            <button id="showAllOpsButton" type="button" class="btn btn-primary">
+              Show All Ops
+            </button>
+          </span>
+        </div>
+      </div>
+      <div class="col-md-12 clickARowInstruction">
+        <span
+          ><large
+            ><i class="fa fa-info-circle" aria-hidden="true"></i> Click an op to
+            see its kernels below</large
+          ></span
+        >
+      </div>
+      <table
+        id="datatableAllOps"
+        class="
+          table table-condensed table-striped table-bordered
+          dlProfDataTable
+        "
+      >
+        <!-- Any changes to the HTML in this panel should be reflected in IterationsView.js -->
+        <thead>
+          <tr>
+            <th class="sortDescFirst">GPU Time (ns)</th>
+            <th id="cpuTimeColHdr" class="sortDescFirst">CPU Time (ns)</th>
+            <th>Op ID</th>
+            <th>Op Name</th>
+            <th>Direction</th>
+            <th class="cudaNoWrap">Op Type</th>
+            <th class="sortDescFirst">Calls</th>
+            <th class="sortDescFirst">TC Eligible</th>
+            <th class="sortDescFirst">Using TC</th>
+            <th id="kernelCallsColHdr" class="sortDescFirst">Kernel Calls</th>
+            <th>Data Type</th>
+            <th>Stack Trace</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+
+  <br />
+
+  <div id="kernelSummaryPanel" class="panel panel-nvidia-green inlineBlock minWidthPanel">
+    <div class="panel-heading">
+      <span id="kernelsTableChevron"><i class="fa fa-compress"></i></span>
+      Kernel Summaries
+    </div>
+    <div id="kernelsTablePanel" class="panel-body">
+      <div class="col-md-12 clickARowInstruction">
+        <span id="titleForKernelList"></span>
+      </div>
+      <table
+        id="datatableKernelSummary"
+        class="
+          table table-condensed table-striped table-bordered
+          dlProfDataTable
+        "
+      >
+        <thead>
+          <tr>
+            <th>Kernel Name</th>
+            <th class="sortDescFirst">Using TC</th>
+            <th class="sortDescFirst">Calls</th>
+            <th class="sortDescFirst">GPU Time (ns)</th>
+            <th class="sortDescFirst">Avg (ns)</th>
+            <th class="sortDescFirst">Min (ns)</th>
+            <th class="sortDescFirst">Max (ns)</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+</html>
